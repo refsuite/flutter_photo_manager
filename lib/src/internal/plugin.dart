@@ -665,7 +665,8 @@ class PhotoManagerPlugin with BasePlugin, IosPlugin, AndroidPlugin, OhosPlugin {
 
   Future<void> presentLimited(RequestType type) async {
     if (Platform.isIOS || Platform.isAndroid) {
-      return _channel.invokeMethod(PMConstants.mPresentLimited, {
+      return _channel
+          .invokeMethod(PMConstants.mPresentLimited, <String, dynamic>{
         'type': type.value,
       });
     }
